@@ -24,8 +24,8 @@ import sys
 
 
 # Options
-ENCODING = 'latin2'
-CSV_DELIMITER = ';'
+ENCODING = 'utf-8'
+CSV_DELIMITER = ','
 
 # Check arguments
 try:
@@ -85,5 +85,5 @@ with codecs.open(in_file, 'r', encoding=ENCODING) as f:
 f.close()
 
 with open(out_file, 'w') as fo:
-    fo.write('%s' % json.dumps(entries, indent=4))
+    fo.write('%s' % json.dumps(entries, indent=4, ensure_ascii=False))
 fo.close()
